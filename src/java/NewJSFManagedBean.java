@@ -17,6 +17,8 @@ public class NewJSFManagedBean {
     private long x = 0, y = 0, b = 0, h = 0;
     private Puntos E = new Puntos(), F = new Puntos();
     private double xe, ye, xf, yf, primono;
+    private int n1, n2;
+    private int primos = 0, pares = 0, impares = 0;
     Rectangulo rect = new Rectangulo();
     /**
      * Creates a new instance of NewJSFManagedBean
@@ -33,19 +35,27 @@ public class NewJSFManagedBean {
     public double obtenerDistanciaPuntos(){
         return (Math.sqrt(((xf - xe)*(xf - xe)) +(yf - ye)*(yf - ye)));
     }
-    public String esonoprimo(){
-        String resultado;
-        int count = 0;
-        int i = 1;
+    public void revisarpinp(){
+        int i = n1;
+        setPrimos(0);
+        setImpares(0);
+        setPares(0);
         while(true)
         {
-            if(primono < 0 || i > primono) break;
-            if(primono %i == 0) count++;
+            if(n1 <= 0 || i > n2) break;
+            int pibote = 1;
+            int count = 0;
+            while(true) // Comprueba primos
+            {
+                if(i < 0 || pibote > i || count > 2) break;
+                if(i % pibote == 0) count++;
+                pibote++;
+            }
+            if(count <= 2 && count != 1) setPrimos(getPrimos() + 1);
+            if(i % 2 != 0) setImpares(getImpares() + 1);
+            else setPares(getPares() + 1);
             i++;
-        }
-        if(count > 2) resultado = "No primo";
-        else resultado = "Primo";
-        return resultado;
+        }  
     }
     public void mainScript()
     {
@@ -141,5 +151,75 @@ public class NewJSFManagedBean {
 
     public void setPrimono(double primono) {
         this.primono = primono;
+    }
+
+    /**
+     * @return the n1
+     */
+    public int getN1() {
+        return n1;
+    }
+
+    /**
+     * @param n1 the n1 to set
+     */
+    public void setN1(int n1) {
+        this.n1 = n1;
+    }
+
+    /**
+     * @return the n2
+     */
+    public int getN2() {
+        return n2;
+    }
+
+    /**
+     * @param n2 the n2 to set
+     */
+    public void setN2(int n2) {
+        this.n2 = n2;
+    }
+
+    /**
+     * @return the primos
+     */
+    public int getPrimos() {
+        return primos;
+    }
+
+    /**
+     * @param primos the primos to set
+     */
+    public void setPrimos(int primos) {
+        this.primos = primos;
+    }
+
+    /**
+     * @return the pares
+     */
+    public int getPares() {
+        return pares;
+    }
+
+    /**
+     * @param pares the pares to set
+     */
+    public void setPares(int pares) {
+        this.pares = pares;
+    }
+
+    /**
+     * @return the impares
+     */
+    public int getImpares() {
+        return impares;
+    }
+
+    /**
+     * @param impares the impares to set
+     */
+    public void setImpares(int impares) {
+        this.impares = impares;
     }
 }

@@ -25,10 +25,13 @@
         <center><p:panel id="pnlInicio" header="Distancia de puntos" style="width: 600px;" footer="TPRect">
                 <h:form id="frmLogin">
                     <h:panelGrid id="distanciaPuntos" columns="3">  
-                    <p:outputLabel id="lblPrimo" value ="Ingrese un número"/> 
-                    <p:inputText id="inputprim" value ="#{newJSFManagedBean.primono}"/>
-                    <p:commandButton id="primomostrarbot" value ="Comprobar" update="primomostrar"/>
-                    <p:outputLabel id="primomostrar" value ="#{newJSFManagedBean.esonoprimo()}"/>                  
+                    <p:outputLabel id="lblPrimo" value ="Ingrese dos números"/> 
+                    <p:inputText id="inputprim" value ="#{newJSFManagedBean.n1}"/>
+                    <p:inputText id="inputprim2" value ="#{newJSFManagedBean.n2}"/>
+                    <p:commandButton id="primomostrarbot" value ="Comprobar" action="#{newJSFManagedBean.revisarpinp()}" update="lblimpares lblpares lblprimos"/>   
+                    <p:outputLabel id="lblimpares" value ="Impares #{newJSFManagedBean.impares}"/>   
+                    <p:outputLabel id="lblpares" value ="Pares #{newJSFManagedBean.pares}"/>      
+                    <p:outputLabel id="lblprimos" value ="Primos #{newJSFManagedBean.primos}"/>   
             </h:panelGrid>   
                 </h:form>
             </p:panel></center>
