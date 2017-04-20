@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TP Puntos y Rectángulos | Guillermo Andrés Tolaba</title>
+    </h:head>
+    <p:layout fullPage="true">  
+                <p:layoutUnit position="north" size="250" resizable="true" closable="true" collapsible="true">
+                    <center><img src="../head.jpg" alt="Proyecto Los Santos" style="width: 800px; "/></center>
+                </p:layoutUnit>
+        <p:layoutUnit position="west" size="200" header="Menú" collapsible="true">
+                     <p:menu>
+                        <p:submenu label="Trabajo Práctico 8 - Primos">
+                            <p:menuitem value="Rectángulo" url="../" />
+                            <p:menuitem value="Distancia Puntos" url="/faces/distancia.xhtml" />
+                            <p:menuitem value="Números primos" url="/faces/primos.xhtml" />
+                        </p:submenu>
+                    </p:menu>           
+            
+        </p:layoutUnit>
+    </p:layout>     
+    <p:layoutUnit position="center">
+        <center><p:panel id="pnlInicio" header="Distancia de puntos" style="width: 600px;" footer="TPRect">
+                <h:form id="frmLogin">
+                    <h:panelGrid id="distanciaPuntos" columns="3">  
+                    <p:outputLabel id="lblPrimo" value ="Ingrese un número"/> 
+                    <p:inputText id="inputprim" value ="#{newJSFManagedBean.primono}"/>
+                    <p:commandButton id="primomostrarbot" value ="Comprobar" update="primomostrar"/>
+                    <p:outputLabel id="primomostrar" value ="#{newJSFManagedBean.esonoprimo()}"/>                  
+            </h:panelGrid>   
+                </h:form>
+            </p:panel></center>
+    </p:layoutUnit> 
+</html>

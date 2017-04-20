@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>TP Puntos y Rectángulos | Guillermo Andrés Tolaba</title>
+        
+    </h:head>
+    <p:layout fullPage="true">  
+                <p:layoutUnit position="north" size="250" resizable="true" closable="true" collapsible="true">
+                    <center><img src="head.jpg" alt="Proyecto Los Santos" style="width: 800px; "/></center>
+                </p:layoutUnit>
+        <p:layoutUnit position="west" size="200" header="Menú" collapsible="true">
+                     <p:menu>
+                        <p:submenu label="Trabajo Práctico 8 - Rectángulo">
+                            <p:menuitem value="Rectángulo" url="" />
+                            <p:menuitem value="Distancia Puntos" url="/faces/distancia.xhtml" />
+                            <p:menuitem value="Números primos" url="/faces/primos.xhtml" />
+                        </p:submenu>
+                    </p:menu>           
+            
+        </p:layoutUnit>
+    </p:layout>     
+    <p:layoutUnit position="center"> 
+                <center><p:panel id="pnlInicio" header="Rectángulo" style="width: 600px;" footer="TPRect">
+            <h:form id="frmLogin">
+                <h:panelGrid id="tblLogin" columns="3">
+                    <p:outputLabel id="lblNUsuario" value ="Ingrese el punto:"/>
+                    <p:inputText id="inputX" value ="#{newJSFManagedBean.x}"/>
+                    <p:inputText id="inputY" value ="#{newJSFManagedBean.y}" type="inputtext"/>    
+                </h:panelGrid>
+                <h:panelGrid id="dos" columns="2"> 
+                   
+                    <p:outputLabel id="lblBaseyB" value ="Ingrese la base"/>
+                    <p:inputText id="inputBase" value ="#{newJSFManagedBean.b}"/>
+                    <p:outputLabel id="lblAlturayB" value ="Ingrese altura"/>
+                    <p:inputText id="inputAltura" value ="#{newJSFManagedBean.h}" type="inputtext"/>    
+                </h:panelGrid>        
+                <p:commandButton id="InicioSesion" value = "Calcular" action="#{newJSFManagedBean.mainScript()}" update="inputXB inputYB inputXC inputYC inputXD inputYD lblPuntoSup lblPuntoPer"/>
+                <h:panelGrid id="tres" columns="4">
+                    <p:outputLabel id="lblPuntoB" value ="Punto B: ("/>      
+                    <p:inputText id="inputXB" value ="#{newJSFManagedBean.obtenerPuntoX(0)}" size="5" disabled="true"/>
+                    <p:inputText id="inputYB" value ="#{newJSFManagedBean.obtenerPuntoY(0)}" size="5" disabled="true"/>
+                    <p:outputLabel id="lblPuntoB2" value =")"/>      
+
+                    <p:outputLabel id="lblPuntoC" value ="Punto C: ("/>      
+                    <p:inputText id="inputXC" value ="#{newJSFManagedBean.obtenerPuntoX(1)}" size="5" disabled="true"/>
+                    <p:inputText id="inputYC" value ="#{newJSFManagedBean.obtenerPuntoY(1)}" size="5" disabled="true"/>
+                    <p:outputLabel id="lblPuntoC2" value =")"/>      
+                     <p:outputLabel id="lblPuntoD" value ="Punto D: ("/>      
+                     <p:inputText id="inputXD" value ="#{newJSFManagedBean.obtenerPuntoX(2)}" size="5" disabled="true"/>
+                     <p:inputText id="inputYD" value ="#{newJSFManagedBean.obtenerPuntoY(2)}" size="5" disabled="true"/>
+                    <p:outputLabel id="lblPuntoD2" value =")"/>                         
+                    <p:outputLabel id="lblPuntoSuperficie" value ="Superficie"/>      
+                    <p:outputLabel id="lblPuntoSup" value ="#{newJSFManagedBean.b*newJSFManagedBean.h}"/>   
+                    <p:outputLabel id="lblPuntoPerimetro" value ="Perímetro"/>      
+                    <p:outputLabel id="lblPuntoPer" value ="#{(newJSFManagedBean.b*2)+(newJSFManagedBean.h*2)}"/>   
+                </h:panelGrid>                             
+            </h:form>       
+        </p:panel></center>
+        </p:layoutUnit>  
+        <br />
+    
+    
+</html>
+
